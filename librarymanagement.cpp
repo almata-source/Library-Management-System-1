@@ -2,9 +2,20 @@
 
 using namespace std;
 
+
+class LibraryUser {
+public:
+    string userID;
+    string name;
+    vector<string> borrowedBooks;
+
+    LibraryUser(const string& id = "", const string& n = "") : userID(id), name(n) {}
+};
+
 //---MAIN---
 int main() {
-    Library lib;
+
+
 
     while (true) {
         cout<< "--- Library Management ---";
