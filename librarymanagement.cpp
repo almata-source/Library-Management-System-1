@@ -1,7 +1,19 @@
 #include <iostream>
+#include <sstream>
+#include <string>
 
 using namespace std;
 
+class Book {
+public:
+    string bookID;
+    string title;
+    string author;
+    bool isBorrowed;
+
+    Book(const string& id = "", const string& t = "", const string& a = "", bool b = false)
+        : bookID(id), title(t), author(a), isBorrowed(b) {}
+};
 
 class LibraryUser {
 public:
