@@ -1,9 +1,11 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
+// class Book
 class Book {
 public:
     string bookID;
@@ -15,6 +17,7 @@ public:
         : bookID(id), title(t), author(a), isBorrowed(b) {}
 };
 
+// class LibraryUser
 class LibraryUser {
 public:
     string userID;
@@ -24,17 +27,46 @@ public:
     LibraryUser(const string& id = "", const string& n = "") : userID(id), name(n) {}
 };
 
+// class Library
+class Library {
+private:
+    vector<Book> books;
+    vector<LibraryUser> users;
+
+    int findUserIndexById(const string& id) const {
+        for (int i = 0; i < (int)users.size(); ++i)
+            if (users[i].userID == id) return i;
+        return -1;
+    }
+
+    int findBookIndexById(const string& id) const {
+        for (int i = 0; i < (int)books.size(); ++i)
+            if (books[i].bookID == id) return i;
+        return -1;
+    }
+};
+
 //---MAIN---
 int main() {
-
-
-
+	Library lib;
+	
     while (true) {
-        cout<< "--- Library Management ---";
-        cout<< "1. Register User\n";
-        cout<< "2.Remove User\n";
-        cout<< "3. Display Users\n";
+        cout << "--- Library Management ---\n";
+        cout << "1. Register User\n";
+        cout << "2. Remove User\n";
+        cout << "3. Display Users\n";
         cout << "4. Add Book\n";
         cout << "5. Remove Book\n";
+        cout << "6. Display Books\n";
+        cout << "7. Borrow Book\n";
+        cout << "8. Return Book\n";
+        cout << "9. Exit\n";
+        cout << "Enter choice: ";
+        
+        string line;
+        if (!getline(cin, line));
+        
     }
 }
+
+
