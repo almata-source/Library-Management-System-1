@@ -64,8 +64,15 @@ int main() {
         cout << "Enter choice: ";
         
         string line;
-        if (!getline(cin, line));
-        
+        if (!getline(cin, line)) break;
+        int choice = parseMenuChoice(line);
+        if (choice < 1 || choice > 9) {
+            cout << "Invalid choice!\n";
+            continue;
+        }
+        if (choice == 9) { cout << "Exiting...\n"; break; }
+
+        cout << "You chose option " << choice << endl;
     }
 }
 
