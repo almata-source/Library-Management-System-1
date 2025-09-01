@@ -46,6 +46,15 @@ private:
     }
 };
 
+	int parseMenuChoice(const string& line) {
+	    stringstream ss(line);
+	    int choice;
+	    if (!(ss >> choice)) return -1;
+	    char c;
+	    if (ss >> c) return -1;
+	    return choice;
+	}
+
 //---MAIN---
 int main() {
 	Library lib;
