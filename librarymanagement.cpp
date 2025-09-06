@@ -54,6 +54,24 @@ private:
 	    if (ss >> c) return -1;
 	    return choice;
 	}
+public:
+
+    void registerUser() {
+    string id, name;
+    cout << "Enter User ID: ";
+    getline(cin, id);
+
+    if (findUserIndexById(id) != -1) {
+        cout << "User already exists!\n";
+        return;
+    }
+
+    cout << "Enter User Name: ";
+    getline(cin, name);
+
+    users.emplace_back(id, name);
+    cout << "User registered successfully!\n";
+}
 
 //---MAIN---
 int main() {
