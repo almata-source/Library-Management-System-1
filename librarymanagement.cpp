@@ -83,6 +83,24 @@ public:
     for (const auto& u : users) {
         cout << "ID: " << u.userID << ", Name: " << u.name << "\n";
     }
+    void addBook() {
+    string id, title, author;
+    cout << "Enter Book ID: ";
+    getline(cin, id);
+
+    if (findBookIndexById(id) != -1) {
+        cout << "Book already exists!\n";
+        return;
+    }
+
+    cout << "Enter Title: ";
+    getline(cin, title);
+    cout << "Enter Author: ";
+    getline(cin, author);
+
+    books.emplace_back(id, title, author, false);
+    cout << "Book added successfully!\n";
+}
 
     //borrow books
     void borrowBook() {
