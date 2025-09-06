@@ -71,6 +71,17 @@ public:
 
     users.emplace_back(id, name);
     cout << "User registered successfully!\n";
+
+    void displayUsers() const {
+    if (users.empty()) {
+        cout << "No users registered.\n";
+        return;
+    }
+    cout << "--- Registered Users ---\n";
+    for (const auto& u : users) {
+        cout << "ID: " << u.userID << ", Name: " << u.name << "\n";
+    }
+}
 }
 
 //---MAIN---
