@@ -220,6 +220,27 @@ public:
     books[bIdx].isBorrowed = false;
     cout << "Book returned successfully!\n";
     }
+
+    //remove user
+    void removeUser() {
+    string id;
+    cout << "Enter User ID to remove: ";
+    getline(cin, id);
+
+    int idx = findUserIndexById(id);
+    if (idx == -1) {
+        cout << "User not found!\n";
+        return;
+    }
+
+    if (!users[idx].borrowedBooks.empty()) {
+        cout << "User cannot be removed, they still have borrowed books.\n";
+        return;
+    }
+
+    users.erase(users.begin() + idx);
+    cout << "User removed successfully!\n";
+    }
 }
 }
 
