@@ -81,8 +81,36 @@ public:
     for (const auto& u : users) {
         cout << "ID: " << u.userID << ", Name: " << u.name << "\n";
     }
+    void borrowBook() {
+    string userId, bookId;
+    cout << "Enter User ID: ";
+    getline(cin, userId);
+    int uIdx = findUserIndexById(userId);
+    if (uIdx == -1) {
+        cout << "User not found!\n";
+        return;
+    }
+
+    cout << "Enter Book ID: ";
+    getline(cin, bookId);
+    int bIdx = findBookIndexById(bookId);
+    if (bIdx == -1) {
+        cout << "Book not found!\n";
+        return;
+    }
+
+    if (books[bIdx].isBorrowed) {
+        cout << "Book is already borrowed!\n";
+        return;
+    }
+
+    books[bIdx].isBorrowed = true;
+    users[uIdx].borrowedBooks.push_back(bookId);
+    cout << "Book borrowed successfully!\n";
 }
 }
+}
+
 
 //---MAIN---
 int main() {
