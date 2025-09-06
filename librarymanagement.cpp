@@ -159,6 +159,36 @@ public:
     books[bIdx].isBorrowed = false;
     cout << "Book returned successfully!\n";
     }
+    
+    void returnBook() {
+    string userId, bookId;
+    cout << "Enter User ID: ";
+    getline(cin, userId);
+    int uIdx = findUserIndexById(userId);
+    if (uIdx == -1) {
+        cout << "User not found!\n";
+        return;
+    }
+
+    cout << "Enter Book ID: ";
+    getline(cin, bookId);
+    int bIdx = findBookIndexById(bookId);
+    if (bIdx == -1) {
+        cout << "Book not found!\n";
+        return;
+    }
+
+    auto& borrowed = users[uIdx].borrowedBooks;
+    auto it = find(borrowed.begin(), borrowed.end(), bookId);
+    if (it == borrowed.end()) {
+        cout << "This user did not borrow that book.\n";
+        return;
+    }
+
+    borrowed.erase(it);
+    books[bIdx].isBorrowed = false;
+    cout << "Book returned successfully!\n";
+}
 
     //return book
     void returnBook() {
