@@ -100,6 +100,8 @@ int main() {
         if (choice == 9) { cout << "Exiting...\n"; break; }
 
         cout << "You chose option " << choice << endl;
+        
+        case 1: lib.registerUser(); break;
     }
 }
 
